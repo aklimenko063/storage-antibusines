@@ -15,9 +15,10 @@ public class Worker {
         if (!items.isEmpty()) {
             ItemAbstract itemAbstract = items.get(items.size() - 1);
             if (items.size() % 2 == 0) {
+                System.out.println("Рабочий " + name + " испортил товар " + itemAbstract);
                 itemAbstract.setBroken(true);
             }
-            System.out.println(itemAbstract.hashCode());
+            System.out.println("Рабочий " + name + " отправил на склад " + itemAbstract);
             items.remove(itemAbstract);
             storage.getItems().put(itemAbstract, itemAbstract);
         }
@@ -30,6 +31,7 @@ public class Worker {
                 .map(element -> element.getValue())
                 .toList();
         if (!findingItems.isEmpty()) {
+            System.out.println("Рабочий " + name + " взял со склада " + findingItems.get(0));
             storage.getItems().remove(findingItems.get(0));
         }
     }

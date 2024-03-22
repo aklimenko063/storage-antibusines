@@ -11,10 +11,14 @@ public class Buyer {
     }
 
     public void buyBrokenVodka(Storage storage) {
+        System.out.println("Начало покупки испорченной водки покупателем: " + name);
         storage.buyItems(Vodka.class, true);
+        System.out.println("Окончание покупки испорченной водки покупателем: " + name);
     }
 
     public void buyNotBrokenBike(Storage storage) {
+        System.out.println("Начало покупки велосипедов покупателем: " + name);
         storage.buyItems(Bike.class, false);
+        System.out.println("Окончание покупки велосипедов покупателем: " + name);
     }
 }

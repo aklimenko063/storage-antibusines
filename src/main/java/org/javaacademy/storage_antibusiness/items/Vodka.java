@@ -5,9 +5,17 @@ import java.util.UUID;
 
 public class Vodka extends ItemAbstract {
     private UUID partNumber = UUID.randomUUID();
+    private final String name = "Водка";
 
     public Vodka() {
         super(false);
+    }
+
+    @Override
+    public String toString() {
+        return "Vodka{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
     @Override

@@ -5,8 +5,16 @@ import java.util.UUID;
 
 public class Bike extends ItemAbstract {
     private UUID partNumber = UUID.randomUUID();
+    private final String name = "Велосипед";
     public Bike() {
         super(false);
+    }
+
+    @Override
+    public String toString() {
+        return "Bike{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
     @Override

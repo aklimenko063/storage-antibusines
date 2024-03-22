@@ -12,6 +12,8 @@ public class Importer {
     }
 
     public void importItems(Storage storage, List<ItemAbstract> items) {
+        System.out.println("Начали разгрузку поставщика: " + name);
         storage.addItem(items);
+        System.out.println("Закончили разгрузку поставщика: " + name);
     }
 }
