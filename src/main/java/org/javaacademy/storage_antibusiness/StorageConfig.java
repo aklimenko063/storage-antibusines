@@ -20,4 +20,24 @@ public class StorageConfig {
     public Storage storage() {
         return new Storage(mishaWorker(), zelyaWorker());
     }
+
+    @Bean
+    public Importer absolutImporter() {
+        return new Importer("Absolut", storage());
+    }
+
+    @Bean
+    public Importer aistImporter() {
+        return new Importer("Aist", storage());
+    }
+
+    @Bean
+    public Buyer petrovichBuyer() {
+        return new Buyer("Petrovich", storage());
+    }
+
+    @Bean
+    public Buyer resharBuyer() {
+        return new Buyer("Reshar", storage());
+    }
 }

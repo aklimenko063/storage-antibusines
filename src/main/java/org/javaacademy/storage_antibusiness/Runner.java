@@ -27,17 +27,16 @@ public class Runner {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("org.javaacademy.storage_antibusiness");
         Storage beanStorage = context.getBean(Storage.class);
+        Importer beanAbsolutImporter = context.getBean("absolutImporter", Importer.class);
+        Importer beanAistImporter = context.getBean("aistImporter", Importer.class);
+        Buyer beanPetrovichBuyer = context.getBean("petrovichBuyer", Buyer.class);
+        Buyer beanResharBuyer = context.getBean("resharBuyer", Buyer.class);
 
-        Importer absolutImporter = new Importer("Absolut");
-        Importer aistImporter = new Importer("Aist");
-        Buyer petrovichBuyer = new Buyer("Petrovich");
-        Buyer resharBuyer = new Buyer("Reshar");
+        beanAbsolutImporter.importItems(new ArrayList<>(List.of(new Vodka(), new Vodka(), new Vodka())));
+        beanAistImporter.importItems(new ArrayList<>(List.of(new Bike(), new Bike(), new Bike())));
 
-        absolutImporter.importItems(beanStorage, new ArrayList<>(List.of(new Vodka(), new Vodka(), new Vodka())));
-        aistImporter.importItems(beanStorage, new ArrayList<>(List.of(new Bike(), new Bike(), new Bike())));
-
-        petrovichBuyer.buyBrokenVodka(beanStorage);
-        resharBuyer.buyNotBrokenBike(beanStorage);
+        beanPetrovichBuyer.buyBrokenVodka();
+        beanResharBuyer.buyNotBrokenBike();
 
         context.close();
     }
